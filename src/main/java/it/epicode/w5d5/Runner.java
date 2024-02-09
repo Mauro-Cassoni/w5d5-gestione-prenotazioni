@@ -70,6 +70,7 @@ public class Runner implements CommandLineRunner {
         }
 
 
+        postazioneService.cercaPerTipologiaECitta(Tipo.OPENSPACE,"Roma").forEach(System.out::println);
 
     }
 }

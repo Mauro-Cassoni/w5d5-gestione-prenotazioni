@@ -21,4 +21,13 @@ public class Edificio {
 
     @OneToMany(mappedBy = "edificio")
     List<Postazione> postazioni;
+
+    @Override
+    public String toString() {
+        return
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", indirizzo='" + indirizzo + '\'' +
+                ", citta='" + citta + '\'';
+    }
 }

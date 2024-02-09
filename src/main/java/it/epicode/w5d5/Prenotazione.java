@@ -27,5 +27,12 @@ public class Prenotazione {
     @Column(name = "data_prenotazione")
     private LocalDate dataPrenotazione;
 
-
+    @Override
+    public String toString() {
+        return
+                "id=" + id +
+                ", utente=" + utente +
+                ", postazione=" + postazione +
+                ", dataPrenotazione=" + dataPrenotazione;
+    }
 }
