@@ -18,12 +18,11 @@ public class PostazioneService {
     private PostazioneRepository postazioneRepository;
 
     public void salvaPostazione(Postazione postazione){
-        Tipo tipo = postazione.getTipo();
-        String citta = postazione.getEdificio().getCitta();
-        List<Postazione> lista = postazioneRepository.cercaPerTipoECitta(tipo,citta);
-        if (lista.size()>0) {
-            postazioneRepository.save(postazione);
-        }
+        postazioneRepository.save(postazione);
+    }
+
+    public List<Postazione> cercaPerTipologiaECitta(Tipo tipoPostazione, String citta){
+        return postazioneRepository.cercaPerTipoECitta(tipoPostazione,citta);
     }
     
     public void aggiornaPostazione(Postazione postazione){

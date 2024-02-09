@@ -18,8 +18,18 @@ public class PrenotazioneService {
 
     public void salvaPrenotazione(Prenotazione prenotazione) throws IllegalStateException{
         LocalDate dataPrenotazione = prenotazione.getDataPrenotazione();
+        if (dataPrenotazione == null){
+            throw new IllegalStateException("Manca la data");
+        }
         Postazione postazione =  prenotazione.getPostazione();
+        if (postazione == null){
+            throw new IllegalStateException("Manca una postazione");
+        }
         Utente utente = prenotazione.getUtente();
+        if (utente == null){
+            throw new IllegalStateException("Manca l'utente");
+        }
+
         boolean occupato = prenotazioneRepository.verPrenotazione(postazione,dataPrenotazione);
         boolean dispUtente = prenotazioneRepository.verUtente(utente,dataPrenotazione);
         if (occupato){
