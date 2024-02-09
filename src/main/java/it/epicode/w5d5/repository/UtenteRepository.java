@@ -7,16 +7,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
 public interface UtenteRepository extends JpaRepository<Utente, Integer> {
 
-//    @Query("select x from Drink x where x.nome = :nome")
-//    public List<Utente> findByNome(String nome);
-//
-//    @Query("select x from Drink x")
-//    public List<Utente> findAll();
 
 
 }

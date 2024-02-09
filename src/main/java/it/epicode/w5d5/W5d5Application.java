@@ -9,7 +9,6 @@ public class W5d5Application {
 	public static void main(String[] args) {
 		SpringApplication.run(W5d5Application.class, args);
 
-
 	}
 
 }

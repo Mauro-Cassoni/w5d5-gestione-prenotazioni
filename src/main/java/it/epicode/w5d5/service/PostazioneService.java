@@ -1,10 +1,14 @@
 package it.epicode.w5d5.service;
 
 import it.epicode.w5d5.Postazione;
+import it.epicode.w5d5.Prenotazione;
+import it.epicode.w5d5.Tipo;
+import it.epicode.w5d5.Utente;
 import it.epicode.w5d5.repository.PostazioneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -14,7 +18,12 @@ public class PostazioneService {
     private PostazioneRepository postazioneRepository;
 
     public void salvaPostazione(Postazione postazione){
-        postazioneRepository.save(postazione);
+        Tipo tipo = postazione.getTipo();
+        String citta = postazione.getEdificio().getCitta();
+        List<Postazione> lista = postazioneRepository.cercaPerTipoECitta(tipo,citta);
+        if (lista.size()>0) {
+            postazioneRepository.save(postazione);
+        }
     }
     
     public void aggiornaPostazione(Postazione postazione){
@@ -35,16 +44,9 @@ public class PostazioneService {
         postazioneRepository.deleteById(id);
     }
 
-//    public List<Postazione> cercaPizzaPerNome(String nome){
-//        return postazioneRepository.findByNome(nome);
-//    }
-//
-//    public List<Postazione> mostraTutteLePizze(){
-//        return postazioneRepository.findAll();
-//    }
-//
-    
-    
+
+
+
     
     
 }
